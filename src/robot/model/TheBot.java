@@ -54,25 +54,48 @@ public class TheBot
 				Thread.sleep(length* 10000);
 				Motor.B.stop();
 				Motor.C.stop();
-				Motor.B.forward();
-				Motor.C.backward();
-				Thread.sleep(length* 1000);
-				Motor.B.stop();
-				Motor.C.stop();
-				while (!Button.ENTER.isDown())
+//				Motor.B.forward();
+//				Motor.C.backward();
+//				Thread.sleep(length* 1000);
+//				Motor.B.stop();
+//				Motor.C.stop();
+				
+			
+
 				{
+					Button.ENTER.waitForPressAndRelease();
+					for(int t = 0; t < 3; t++)
+					{
+					Motor.B.forward();
+					Motor.C.backward();
+					Thread.sleep(length* 500);
+					Motor.B.stop();
+					Motor.C.stop();
 					Motor.B.forward();
 					Motor.C.forward();
-					Thread.sleep(length* 5000);
+					Thread.sleep(length* 166);
+					Motor.B.stop();
+					Motor.C.stop();
+					}
 				}
 		
 				{
-					Button.ENTER.waitForPressAndRelease();
+					Button.ESCAPE.waitForPressAndRelease();
+					for(int s = 0; s <4; s++)
+					{
 					Motor.B.forward();
 					Motor.C.backward();
-					Thread.sleep(length* 9000);
+					Thread.sleep(length* 2000);
+					Motor.B.stop();
+					Motor.C.stop(); 
+					Motor.B.forward();
+					Motor.C.forward();
+					Thread.sleep(length* 500);
+					Motor.B.stop();
+					Motor.C.stop();
+					}
 				}
-	
+				
 				
 				
 			}
@@ -93,4 +116,5 @@ public class TheBot
 		}
 		return currentAngle;
 	}
+	
 }
